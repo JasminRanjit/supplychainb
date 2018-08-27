@@ -67,3 +67,6 @@ backEnd/package-lock.json
 *.card
 node_modules
 dist
+
+package-lock.json
+out
