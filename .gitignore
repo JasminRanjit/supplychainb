@@ -63,3 +63,7 @@ typings/
 *.idea/
 
 backEnd/package-lock.json
+
+*.card
+node_modules
+dist
