@@ -8,16 +8,26 @@ exports.create = (req, res) => {
             message: "name can not be empty"
         });
     }
-    if(!req.body.emailId) {
+    if(!req.body.role) {
         return res.status(400).send({
-            message: "emailId can not be empty"
+            message: "role can not be empty"
         });
     }
-
+    if(!req.body.userId) {
+        return res.status(400).send({
+            message: "UserID can not be empty"
+        });
+    }if(!req.body.cardName) {
+        return res.status(400).send({
+            message: "cardName can not be empty"
+        });
+    }
     // Create a account
     const account = new Account({
         name: req.body.name,
-        emailId: req.body.emailId
+        role: req.body.role,
+        userId: req.body.userId,
+        cardName: req.body.cardName
     });
 
     // Save account in the database
@@ -68,16 +78,31 @@ exports.findOne = (req, res) => {
 // Update a account identified by the accountId in the request
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.emailId) {
+    if(!req.body.name) {
         return res.status(400).send({
-            message: "account emailId can not be empty"
+            message: "name can not be empty"
+        });
+    }
+    if(!req.body.role) {
+        return res.status(400).send({
+            message: "role can not be empty"
+        });
+    }
+    if(!req.body.userId) {
+        return res.status(400).send({
+            message: "UserID can not be empty"
+        });
+    }if(!req.body.cardName) {
+        return res.status(400).send({
+            message: "cardName can not be empty"
         });
     }
 
     // Find account and update it with the request body
     Account.findByIdAndUpdate(req.params.accountId, {
-        title: req.body.title || "Untitled account",
-        emailId: req.body.emailId
+        name: req.body.name,
+        role: req.body.role,
+        userId: req.body.userId,
     }, {new: true})
         .then(account => {
             if(!account) {
