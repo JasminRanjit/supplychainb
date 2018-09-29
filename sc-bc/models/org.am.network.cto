@@ -144,6 +144,9 @@ abstract participant Business identified by email {
 participant Grower extends Business {
 }
 
+participant WholeSeller extends Business{
+}
+
 /**
  * A Shipper is a type of participant in the network
  */
