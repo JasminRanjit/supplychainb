@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const AccountSchema = mongoose.Schema({
     name: String,
-    emailId: String
+    role: String,
+    cardName: String,
+    userID: String,
 }, {
     timestamps: true
 });

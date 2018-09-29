@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 
 // Require main routes
 require('./app/routes/account.routes.js')(app);
+require('./app/routes/grow.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {
